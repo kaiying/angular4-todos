@@ -43,7 +43,26 @@ describe('AppComponent', () => {
         it(`class裡面的inputHint值必須為'What needs to be done?'`, () => {
             expect(target.inputHint).toBe('What needs to be done?');
         });
-
     });
+
+    describe(`Day 08`, () => {
+        it(`should use 'addTodo()' on 'keyup.enter' event in HTML`, () => {
+            spyOn(component, 'addTodo');
+            debugElement.query(By.css('.new-todo')).triggerEventHandler('keyup.enter', null);
+
+            expect(component.addTodo).toHaveBeenCalled();
+        });
+
+        it(`should have 'addTodo()' to push todo to array and clear todo`, () => {
+            const todoStub = <HTMLInputElement>{
+                'value': 'fake'
+            };
+            target.addTodo(todoStub);
+
+            expect(target.todos.length).toBe(1);
+            expect(todoStub.value).toBe('');
+        });
+    });
+
 
 });

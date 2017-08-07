@@ -1,4 +1,5 @@
 import { SenaoNgPage } from './app.po';
+import { protractor } from 'protractor';
 
 describe('Angular Todos', () => {
   let page: SenaoNgPage;
@@ -16,4 +17,14 @@ describe('Angular Todos', () => {
     page.navigateTo();
     expect(page.getPlaceholder()).toBe('What needs to be done?');
   });
+
+
+  it(`should be empty after pressing enter`, () => {
+    page.navigateTo()
+        .setTodo('Study Angular')
+        .setTodo(protractor.Key.ENTER);
+
+    expect(page.getTodo()).toBe('');
+  });
+
 });
