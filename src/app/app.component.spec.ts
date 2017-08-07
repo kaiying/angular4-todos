@@ -2,6 +2,7 @@ import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 
 import { AppComponent } from './app.component';
 import { By } from '@angular/platform-browser';
+import { TitleComponent } from './title/title.component';
 
 describe('AppComponent', () => {
     let component: AppComponent;
@@ -9,7 +10,7 @@ describe('AppComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [AppComponent]
+            declarations: [AppComponent, TitleComponent]
         })
             .compileComponents();
     }));
