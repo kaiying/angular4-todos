@@ -1,6 +1,6 @@
 import { SenaoNgPage } from './app.po';
 
-describe('senao-ng App', () => {
+describe('Angular Todos', () => {
   let page: SenaoNgPage;
 
   beforeEach(() => {
