@@ -11,4 +11,9 @@ describe('Angular Todos', () => {
     page.navigateTo();
     expect(page.getTodos()).toBe('todos');
   });
+
+  it(`在.new-todo的input裡面，placeholder必須是'What needs to be done?'`, () => {
+    page.navigateTo();
+    expect(page.getPlaceholder()).toBe('What needs to be done?');
+  });
 });

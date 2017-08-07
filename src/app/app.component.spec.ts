@@ -29,8 +29,21 @@ describe('AppComponent', () => {
     });
     describe('Day 04 課堂：建立component整合測試', () => {
         it(`HTML中必須要有<app-title>節點。`, () => {
-            const element = debugElement.query(By.css('app-title')).nativeElement;
-            expect(element).toBeTruthy();
+            htmlElement = debugElement.query(By.css('app-title')).nativeElement;
+            expect(htmlElement).toBeTruthy();
         });
     });
+    describe(`placeholder`, () => {
+        it(`.new-todo必須使用inputHint field`, () => {
+           component.inputHint = 'fake';
+           fixture.detectChanges();
+           htmlElement = debugElement.query(By.css('.new-todo')).nativeElement;
+           expect(htmlElement.getAttribute('placeholder')).toBe('fake');
+        });
+        it(`class裡面的inputHint值必須為'What needs to be done?'`, () => {
+            expect(target.inputHint).toBe('What needs to be done?');
+        });
+
+    });
+
 });
