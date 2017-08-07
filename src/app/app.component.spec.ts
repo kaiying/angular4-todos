@@ -10,6 +10,7 @@ describe('AppComponent', () => {
     let fixture: ComponentFixture<AppComponent>;
     let debugElement: DebugElement;
     let target: AppComponent;
+    let htmlElement: HTMLElement;
 
     beforeEach(() => {
         TestBed.configureTestingModule({

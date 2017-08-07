@@ -10,6 +10,7 @@ describe('TitleComponent', () => {
   let fixture: ComponentFixture<TitleComponent>;
   let target: TitleComponent;
   let debugElement: DebugElement;
+  let htmlElement: HTMLElement;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -36,6 +37,24 @@ describe('TitleComponent', () => {
 
       const element = fixture.debugElement.query(By.css('h1')).nativeElement;
       expect(element.textContent).toBe('fake');
+    });
+  });
+
+  describe(`作業檢討：<h1></h1>使用getTitle()`, () => {
+    it(`「一般」：<h1></h1>裡面要使用getTitle()`, () => {
+      component.getTitle = () => 'fake';
+      fixture.detectChanges();
+
+      htmlElement = debugElement.query(By.css('h1')).nativeElement;
+      expect(htmlElement.textContent).toBe('fake');
+    });
+    it(`「spyOn」：<h1></h1>裡面要使用getTitle()`, () => {
+      spyOn(component, 'getTitle').and.callFake(() => {
+        return 'fake';
+      });
+      fixture.detectChanges();
+      htmlElement = debugElement.query(By.css('h1')).nativeElement;
+      expect(htmlElement.textContent).toBe('fake');
     });
   });
 });
