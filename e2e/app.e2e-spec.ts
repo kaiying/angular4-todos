@@ -7,8 +7,8 @@ describe('senao-ng App', () => {
     page = new SenaoNgPage();
   });
 
-  it('should display welcome message', () => {
+  it(`在<h1>中必須顯示'todos'`, () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!');
+    expect(page.getTodos()).toBe('todos');
   });
 });
